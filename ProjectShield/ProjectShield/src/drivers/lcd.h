@@ -11,6 +11,7 @@
 
 #include "asf.h"
 #include "error.h"
+
 #define LCD_RS PIO_PC22_IDX
 #define LCD_Enable PIO_PC21_IDX
 
@@ -29,8 +30,10 @@ enum LCD_write_state {
 	NBR_OF_LCD_WRITE_STATE
 };
 
-int lcdInit(void);
-err_code lcdWrite(uint8_t byte, bool type);
-err_code lcdClearDisplay(void);
+int lcd_init(void);
+err_code lcd_write(uint8_t byte, bool type);
+err_code lcd_clear(void);
+err_code lcd_write_number(int number, uint8_t digits);
+err_code lcd_write_str(const char *string);
 
 #endif

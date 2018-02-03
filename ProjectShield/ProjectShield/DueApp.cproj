@@ -493,6 +493,18 @@
     <Folder Include="src\drivers" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\drivers\conf_tc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\conf_tc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\pin_mapper.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\pin_mapper.h">
+      <SubType>compile</SubType>
+    </Compile>
     <None Include="src\ASF\common\services\serial\sam_uart\uart_serial.h">
       <SubType>compile</SubType>
     </None>
@@ -559,28 +571,25 @@
     <Compile Include="src\drivers\adcFunctions.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\drivers\ConsoleFunctions.c">
+    <Compile Include="src\drivers\serial.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\drivers\consoleFunctions.h">
+    <Compile Include="src\drivers\serial.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\drivers\DelayFunctions.c">
+    <Compile Include="src\drivers\delay.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\drivers\DelayFunctions.h">
+    <Compile Include="src\drivers\delay.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\drivers\lcdApplication.c">
+    <Compile Include="src\drivers\lcd.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\drivers\lcdApplication.h">
+    <Compile Include="src\drivers\lcd.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\drivers\LCDFunctions.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\drivers\LCDFunctions.h">
+    <Compile Include="src\error.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\main.c">

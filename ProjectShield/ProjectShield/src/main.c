@@ -9,26 +9,39 @@
 #include <stdio_serial.h>
 #include <asf.h>
 
-#include "drivers/consoleFunctions.h"
-#include "drivers/DelayFunctions.h"
+#include "pin_mapper.h"
 
-#include "drivers/LCDFunctions.h"
-#include "drivers/lcdApplication.h"
+#include "drivers/serial.h"
+#include "drivers/delay.h"
+#include "drivers/lcd.h"
 
 int main(void)
 {
-	sysclk_init();	/* Insert system clock initialization code here (sysclk_init()). */
+	sysclk_init();
 	board_init();
 
-	delayInit();
-	configureConsole();	/* Initialize the console UART used from within Atmel Studio*/
-	lcdInit();
-	lcdClearDisplay();
+	ioport_init();
+	delay_init();
+	serial_init();
+	lcd_init();
+	lcd_clear();
 	
-	lcdWrite4DigitNumber(1997);
+	ioport_enable_pin(arduino_to_sam(13));
+	ioport_set_pin_dir(arduino_to_sam(13), IOPORT_DIR_OUTPUT);
+
+	uint8_t counter = 0;
 	
 	while(1){
+		lcd_clear();
+		lcd_write_str("Power: ");
+		lcd_write_number(counter++, 3);
+		ioport_set_pin_level(arduino_to_sam(13), HIGH);
 		
+		delay_ms(500);
+		
+		ioport_set_pin_level(arduino_to_sam(13), LOW);
+		
+		delay_ms(500);
 	}
 	
 	return 0;

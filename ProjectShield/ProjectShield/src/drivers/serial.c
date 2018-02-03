@@ -9,9 +9,9 @@
 #include <stdio_serial.h>
 #include <asf.h>
 #include "conf_board.h"
-#include "consoleFunctions.h"
+#include "serial.h"
 
-void configureConsole(void)
+void serial_init(void)
 /* Enables feedback through the USB-cable back to terminal within Atmel Studio */
 /* Note that  the baudrate, parity and other parameters must be set in conf/conf_uart_serial.h */
 {

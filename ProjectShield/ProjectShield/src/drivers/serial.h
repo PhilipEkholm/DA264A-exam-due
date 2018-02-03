@@ -5,10 +5,9 @@
  *  Author: Ulrik
  */ 
 
-
 #ifndef CONSOLEFUNCTIONS_H_
 #define CONSOLEFUNCTIONS_H_
 
-void configureConsole(void);
+void serial_init(void);
 
 #endif /* CONSOLEFUNCTIONS_H_ */

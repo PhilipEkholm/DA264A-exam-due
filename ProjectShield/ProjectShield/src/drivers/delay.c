@@ -1,16 +1,13 @@
-//
-//  DelayFunctions.c
-//  Code to be used in task 1401c
-//
-//	Ulrik Eklund 2014
-//
-//
+/*
+ * delay.c
+ * 
+ * Author: Uek, Philip Ekholm
+ */
 
 #include "asf.h"
-#include "DelayFunctions.h"
+#include "delay.h"
 
-int delayInit(void)		/* Initializes the timer used for delays */
-{
+int delay_init(void) {
 	pmc_enable_periph_clk(ID_TC0);	/* power on the peripheral clock for timers */
 	tc_init(TC0,0,0);				/* TC0, channel 0, TCLK1 och capturemode */
 	tc_set_block_mode(TC0,0);
@@ -18,10 +15,16 @@ int delayInit(void)		/* Initializes the timer used for delays */
 	return 0;						/* evertyhing is ok, typical response */
 }
 
-
-void delayMicroseconds(uint32_t us)		/* A simple implementation for a delay in us (not calibrated) */
-{
+void delay_us(uint32_t us){
 	tc_start(TC0,0);
 	while (tc_read_cv(TC0,0) < us*42);
 	tc_stop(TC0,0);
+}
+
+void delay_ms(uint32_t ms) {
+	delay_us(1000 * ms);
+}
+
+void delay_s(uint32_t s) {
+	delay_ms(1000 * s);
 }
