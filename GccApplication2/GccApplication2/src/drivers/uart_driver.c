@@ -31,7 +31,7 @@ void uart0_transmit(unsigned char data){
 void uart0_putString(char* StringPtr){
 	while (*StringPtr != 0x00){
 		uart0_transmit(*StringPtr);
-		delay_ms(30);
 		StringPtr++;
+		delay_ms(1);
 	}
 }

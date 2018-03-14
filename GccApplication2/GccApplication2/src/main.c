@@ -38,7 +38,8 @@ int main (void)
 	dac_setup();
 	timer_init();
 
-	char str[15];
+	char	str1[5],
+			str2[5];
 	double v_eff;
 	int16_t *p_samples;
 	uint16_t power_mW;
@@ -58,12 +59,16 @@ int main (void)
 			
 			power_mW = round(1000 * ((v_eff * v_eff) / resistance));
 			
-			sprintf(str, "%d\n", power_mW);
-
-			usart0_putString(str);
-			uart0_putString(str);
-
-			delay_ms(10);
+			/* Make sure we don't print out a too big value */
+			if (power_mW > 100) {
+				power_mW = 100;
+			}
+			
+			sprintf(str1, "%03d\n", power_mW);
+			sprintf(str2, "%03d", power_mW);
+			
+			uart0_putString(str1);
+			usart0_putString(str2);
 			
 			/* Reset the index and then start timer for another round */
 			signal_process_reset_sample_index();
