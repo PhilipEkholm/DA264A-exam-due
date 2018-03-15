@@ -70,7 +70,7 @@ int main (void)
 			sprintf(str1, "%d\n", power_mW);
 			sprintf(str2, "-%d", power_mW);
 			
-			uart0_putString(str1);
+			uart0_write_str(str1);
 			usart0_putString(str2);
 			
 			/* Reset the index and then start timer for another round */
