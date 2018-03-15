@@ -60,12 +60,15 @@ int main (void)
 			power_mW = round(1000 * ((v_eff * v_eff) / resistance));
 			
 			/* Make sure we don't print out a too big value */
-			if (power_mW > 100) {
-				power_mW = 100;
+			if (power_mW >= 100) {
+				power_mW = 99;
+			}
+			else if (power_mW <= 10) {
+				power_mW = 11;
 			}
 			
-			sprintf(str1, "%03d\n", power_mW);
-			sprintf(str2, "%03d", power_mW);
+			sprintf(str1, "%d\n", power_mW);
+			sprintf(str2, "-%d", power_mW);
 			
 			uart0_putString(str1);
 			usart0_putString(str2);
