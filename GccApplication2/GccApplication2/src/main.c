@@ -13,6 +13,13 @@
 #include "pin_mapper.h"
 #include "signal_process.h"
 
+/*
+*	Power meter for signals
+*
+*	Created: 2018-03-15
+*	Author: Fille, Aron
+*/
+
 double calculate_rms(int16_t n[], uint16_t length){
 	double rms = 0;
 
