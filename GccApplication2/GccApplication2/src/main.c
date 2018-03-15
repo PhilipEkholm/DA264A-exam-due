@@ -71,7 +71,7 @@ int main (void)
 			sprintf(str2, "-%d", power_mW);
 			
 			uart0_write_str(str1);
-			usart0_putString(str2);
+			usart0_write_str(str2);
 			
 			/* Reset the index and then start timer for another round */
 			signal_process_reset_sample_index();

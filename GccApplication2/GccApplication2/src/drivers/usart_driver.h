@@ -8,5 +8,5 @@
 #pragma once
 
 void usart0_init(void);
-void usart0_transmit(unsigned char data);
-void usart0_putString(char* StringPtr);
+void usart0_write_char(unsigned char chr);
+void usart0_write_str(char* str);

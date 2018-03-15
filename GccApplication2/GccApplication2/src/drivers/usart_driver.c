@@ -25,15 +25,15 @@ void usart0_init(void) {
 	USART0->US_BRGR = 4375;	//Set baudrate(1200). (4375)
 }
 
-void usart0_transmit(unsigned char data) {
+void usart0_write_char(unsigned char chr) {
 	while(!((USART0->US_CSR) & (1u<<1)));
 
-	USART0->US_THR = data;
+	USART0->US_THR = chr;
 }
 
-void usart0_putString(char* StringPtr){
-	while (*StringPtr != 0x00){
-		usart0_transmit(*StringPtr);
-		StringPtr++;
+void usart0_write_str(char* str){
+	while (*str != '\0'){
+		usart0_write_char(*str);
+		str++;
 	}
 }
