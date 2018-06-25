@@ -1,4 +1,4 @@
-# da264a-project-due
+# DA264A-exam-due
 
 Code used in the exam project DA264A. The code is written for the ATSAM3X8E (MCU on Arduino Due) ARM-CM3.
 
